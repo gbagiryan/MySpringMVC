@@ -26,26 +26,3 @@ hs_err_pid*
 
 !/.idea/
 !/web.iml
-.idea/.gitignore
-.idea/artifacts/
-.idea/compiler.xml
-.idea/dataSources.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/uiDesigner.xml
-.idea/vcs.xml
-MySpringMVC.iml
-out/artifacts/MySpringMVC_war_exploded/META-INF/
-out/artifacts/MySpringMVC_war_exploded/WEB-INF/classes/META-INF/
-out/artifacts/MySpringMVC_war_exploded/WEB-INF/classes/applicationContextMVC.xml
-out/artifacts/MySpringMVC_war_exploded/WEB-INF/classes/dispatcher-servlet.xml
-out/artifacts/MySpringMVC_war_exploded/WEB-INF/views/
-out/artifacts/MySpringMVC_war_exploded/WEB-INF/web.xml
-out/artifacts/MySpringMVC_war_exploded/views/
-pom.xml
-src/
-target/classes/META-INF/
-target/classes/applicationContextMVC.xml
-target/classes/dispatcher-servlet.xml
-target/generated-sources/
-target/my-spring-mvc/
