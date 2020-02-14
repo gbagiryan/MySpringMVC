@@ -11,6 +11,12 @@
     <title>Register</title>
 </head>
 <body>
+<%
+    if (request.getAttribute("regError") != null) {
+        response.getWriter().println(request.getAttribute("regError"));
+    }
+%>
+
 <form action="/register" method="post">
 
     <b>
