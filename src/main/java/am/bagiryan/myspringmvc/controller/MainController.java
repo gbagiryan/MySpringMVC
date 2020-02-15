@@ -40,14 +40,14 @@ public class MainController {
 
         User user = userRepository.getByName(username);
         if (user == null) {
-            return new ModelAndView("index", "wrongLogin", "username doesn't exist");
+            return new ModelAndView("index", "login", "username doesn't exist");
         }
         if (user != null && user.getPassword().equals(password)) {
             session.setAttribute("user", user);
-            return new ModelAndView("profile");
+            return new ModelAndView("redirect:/profile");
         }
 
-        return new ModelAndView("index", "wrongLogin", "wrong password");
+        return new ModelAndView("index", "login", "wrong password");
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/register")
@@ -56,10 +56,10 @@ public class MainController {
                                  @RequestParam(required = false, defaultValue = "1") int age, HttpSession session) {
 
         if (userRepository.getByName(username) != null) {
-            return new ModelAndView("register", "regError", "That username already exists");
+            return new ModelAndView("register", "reg", "That username already exists");
         } else if (name == null || surname == null || username == null || password == null ||
                 name == "" || surname == "" || username == "" || password == "") {
-            return new ModelAndView("register", "regError", "All fields must be filled");
+            return new ModelAndView("register", "reg", "All fields must be filled");
         } else {
             User user = new User();
             user.setName(name);
@@ -70,8 +70,8 @@ public class MainController {
 
             userRepository.addUser(user);
 
-            login(user.getUsername(), user.getPassword(),false, session);
+            session.setAttribute("user", user);
+            return new ModelAndView("redirect:/profile");
         }
-        return new ModelAndView("profile", "regError", "Something went wrong");
     }
 }

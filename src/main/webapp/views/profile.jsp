@@ -12,12 +12,19 @@
     <title>page</title>
 </head>
 <body>
-<% User user = (User) session.getAttribute("user"); %>
-<H1><%=user.getUsername()%></H1>
-<H3><%=user.getName()%></H3>
-<H4> <%   response.getWriter().println(user.getSurname()); %></H4>
+<%
+    if (request.getAttribute("prof") != null) {
+        response.getWriter().println(request.getAttribute("prof"));
+    }
+%>
 
-<p><a href="/delete">Delete profile</a></p>
-<p><a href="/logout">Logout</a></p>
+<% User user = (User) session.getAttribute("user"); %>
+<p>Username: <%=user.getUsername()%></p>
+<p>Name: <%=user.getName()%></p>
+<p>Last Name:<%=user.getSurname()%></p>
+<p>Age: <%=user.getAge()%></p>
+
+<button onclick="window.location.href = '/delete';">Delete profile</button>
+<button onclick="window.location.href = '/logout';">Logout</button>
 </body>
 </html>
